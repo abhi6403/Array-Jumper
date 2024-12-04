@@ -79,17 +79,23 @@ namespace Level
 	void LevelView::drawLevel()
 	{
 		background_image->render();
-		drawBox(sf::Vector2f(0, 0));
-		BlockType blockTypeToDraw = level_controller->GetCurrentBoxValue(0);
-		drawBoxValue(sf::Vector2f(0, 0), blockTypeToDraw);
+		
+		for (int i = 0; i < LevelData::NUMBER_OF_BOXES; ++i)
+		{
+			sf::Vector2f position = calculateBoxPosition(i);
+			BlockType blockTypeToDraw = level_controller->GetCurrentBoxValue(i);
+
+			drawBox(position);
+			drawBoxValue(position, blockTypeToDraw);
+		}
 	}
 
 	void LevelView::calculateBoxDimensions()
 	{
 		if (!game_window)return;
-		printf("getting called");
-		box_dimensions.box_width = 300.f;
-		box_dimensions.box_height = 300.f;
+
+		calculateBoxWidthHeight();
+		calculateBoxSpacing();
 	}
 
 	void LevelView::deleteImages()
@@ -141,5 +147,32 @@ namespace Level
 		ImageView* image = getBoxOverlayImage(box_value);
 		image->setPosition(position);
 		image->render();
+	}
+
+	void LevelView::calculateBoxWidthHeight()
+	{
+		float screenWidth = static_cast<float>(game_window->getSize().x);
+		int numBoxes = LevelData::NUMBER_OF_BOXES;
+
+		int numGaps = numBoxes + 1;
+
+		float totalSpaceByGaps = box_dimensions.box_spacing_percentage * static_cast<float>(numGaps);
+
+		float totalSpace = numBoxes + totalSpaceByGaps;
+
+		box_dimensions.box_width = screenWidth / (totalSpace);
+		box_dimensions.box_height = box_dimensions.box_width;
+	}
+
+	void LevelView::calculateBoxSpacing()
+	{
+		box_dimensions.box_spacing = box_dimensions.box_spacing_percentage * box_dimensions.box_width;
+	}
+
+	sf::Vector2f LevelView::calculateBoxPosition(int index)
+	{
+		float xPosition = box_dimensions.box_spacing + static_cast<float>(index) * (box_dimensions.box_width + box_dimensions.box_spacing);
+		float yPosition = static_cast<float>(game_window->getSize().y) - box_dimensions.box_height - box_dimensions.bottom_offset;
+		return sf::Vector2f(xPosition, yPosition);
 	}
 }
