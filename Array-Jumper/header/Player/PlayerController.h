@@ -1,16 +1,25 @@
 #pragma once
+#include "../../header/Event/EventService.h"
 
 namespace Player
 {
 	class PlayerView;
 	class PlayerModel;
 	enum class PlayerState;
+	enum MovementDirection;
+	struct LevelData;
 
 	class PlayerController
 	{
 	private:
 		PlayerModel* player_model;
 		PlayerView* player_view;
+		Event::EventService* event_service;
+
+		void move(MovementDirection direction);
+		void readInput();
+		
+		bool isPositionInBound(int targetPosition);
 
 		void destroy();
 
