@@ -1,5 +1,6 @@
 #pragma once
 #include "../../header/Level/LevelController.h"
+#include "../../header/Level/LevelData.h"
 
 namespace Level
 {
@@ -21,5 +22,6 @@ namespace Level
 		void render();
 
 		BoxDimensions getBoxDimensions();
+		BlockType getCurrentBoxValue(int currentPosition);
 	};
 }

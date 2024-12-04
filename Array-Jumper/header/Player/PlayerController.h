@@ -8,6 +8,7 @@ namespace Player
 	enum class PlayerState;
 	enum MovementDirection;
 	struct LevelData;
+	class BlockType;
 
 	class PlayerController
 	{
@@ -18,6 +19,7 @@ namespace Player
 
 		void move(MovementDirection direction);
 		void readInput();
+		void jump(MovementDirection direction);
 		
 		bool isPositionInBound(int targetPosition);
 
@@ -34,5 +36,6 @@ namespace Player
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
 		int getCurrentPosition();
+
 	};
 }
