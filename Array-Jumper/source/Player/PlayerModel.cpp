@@ -2,6 +2,16 @@
 
 namespace Player
 {
+	PlayerModel::PlayerModel()
+	{
+		player_state = PlayerState::ALIVE;
+		current_position = 0;
+	}
+
+	PlayerModel::~PlayerModel()
+	{
+
+	}
 	void PlayerModel::initialize()
 	{
 

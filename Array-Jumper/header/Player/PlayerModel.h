@@ -15,6 +15,9 @@ namespace Player
 		PlayerState player_state;
 
 	public:
+		PlayerModel();
+		~PlayerModel();
+
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
 

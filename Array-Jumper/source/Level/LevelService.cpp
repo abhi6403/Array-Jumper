@@ -32,4 +32,9 @@ namespace Level
 	{
 		delete(level_controller);
 	}
+
+	BoxDimensions LevelService::getBoxDimensions()
+	{
+		return level_controller->getBoxDimensions();
+	}
 }
