@@ -161,4 +161,9 @@ namespace Player
 	{
 		player_model->resetPlayer();
 	}
+
+	void PlayerController::resetPlayer()
+	{
+		player_model->resetPlayer();
+	}
 }
