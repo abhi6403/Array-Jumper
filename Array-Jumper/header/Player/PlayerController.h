@@ -18,11 +18,9 @@ namespace Player
 		Event::EventService* event_service;
 
 		void move(MovementDirection direction);
-		void readInput();
 		void jump(MovementDirection direction);
-		
 		bool isPositionInBound(int targetPosition);
-
+		void readInput();
 		void destroy();
 
 	public:
@@ -36,6 +34,7 @@ namespace Player
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
 		int getCurrentPosition();
+		void takeDamage();
 
 	};
 }

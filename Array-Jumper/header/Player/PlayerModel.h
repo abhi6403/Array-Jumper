@@ -25,5 +25,7 @@ namespace Player
 		void setCurrentPosition(int new_position);
 
 		void initialize();
+
+		void resetPlayer();
 	};
 }
