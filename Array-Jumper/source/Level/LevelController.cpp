@@ -40,5 +40,23 @@ namespace Level
 		return level_view->getBoxDimensions();
 	}
 
+	bool LevelController::isLastLevel()
+	{
+		return level_model->isLastLevel();
+	}
 
+	void LevelController::loadNextLevel()
+	{
+		return level_model->loadNextLevel();
+	}
+
+	void LevelController::resetLevels()
+	{
+		return level_model->reset();
+	}
+
+	int LevelController::getCurrentLevelNumber()
+	{
+		return level_model->getCurrentLevelNumber();
+	}
 }

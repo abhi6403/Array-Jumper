@@ -9,6 +9,7 @@ namespace UI
 		{
 		private:
 			UIElement::TextView* life_count_text;
+			UIElement::TextView* level_count_text;
 
 			float font_size = 55;
 
@@ -19,7 +20,8 @@ namespace UI
 			void createTexts();
 			void initializeTexts();
 			void initializeLifeCountText();
-
+			void initializeLevelCountText();
+			void updateLevelCountText();
 			void updateLifeCountText();
 
 			void destroy();
