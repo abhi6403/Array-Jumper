@@ -2,7 +2,7 @@
 #include "../../header/Player/PlayerModel.h"
 #include "../../header/Player/PlayerView.h"
 #include "../../header/Player/MovementDirection.h"
-#include "../../header/Level/LevelData.h"
+#include "../../header/Level/LevelModel.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Gameplay/GameplayService.h"
 
@@ -22,9 +22,10 @@ namespace Player
 	{
 		player_model->initialize();
 		player_view->initialize();
-		takeDamage();
 
-		event_service = Global::ServiceLocator::getInstance()->getEventService();
+		event_service = ServiceLocator::getInstance()->getEventService();
+
+		resetPlayer();
 	}
 
 	void PlayerController::update()

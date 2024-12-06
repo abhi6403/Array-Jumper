@@ -50,12 +50,12 @@ namespace Level
 
 	void LevelService::loadNextLevel()
 	{
-		return level_controller->loadNextLevel();
+		level_controller->loadNextLevel();
 	}
 
 	void LevelService::resetLevel()
 	{
-		return level_controller->resetLevels();
+		level_controller->resetLevels();
 	}
 
 	int LevelService::getCurrentLevelNumber()

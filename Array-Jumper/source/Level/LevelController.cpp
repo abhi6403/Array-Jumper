@@ -12,7 +12,8 @@ namespace Level
 
 	LevelController::~LevelController()
 	{
-
+		delete(level_view);
+		delete(level_model);
 	}
 
 	void LevelController::initialize()
@@ -47,12 +48,12 @@ namespace Level
 
 	void LevelController::loadNextLevel()
 	{
-		return level_model->loadNextLevel();
+		level_model->loadNextLevel();
 	}
 
 	void LevelController::resetLevels()
 	{
-		return level_model->reset();
+	    level_model->reset();
 	}
 
 	int LevelController::getCurrentLevelNumber()

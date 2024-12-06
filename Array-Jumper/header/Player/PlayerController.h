@@ -22,6 +22,7 @@ namespace Player
 		bool isPositionInBound(int targetPosition);
 		void readInput();
 		void destroy();
+		void onDeath();
 
 	public:
 		PlayerController();
@@ -37,7 +38,7 @@ namespace Player
 		int getCurrentLives();
 		void takeDamage();
 		void resetPlayer();
-		void onDeath();
+		
 
 	};
 }

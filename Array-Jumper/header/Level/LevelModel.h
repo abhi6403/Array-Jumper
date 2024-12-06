@@ -1,5 +1,6 @@
 #pragma once
 #include "../../header/Level/LevelConfiguration.h"
+#include "../../header/Level/LevelData.h"
 
 namespace Level
 {
@@ -16,7 +17,9 @@ namespace Level
 	class LevelModel
 	{
 	private:
+		const int number_of_level = LevelConfiguration::NUMBER_OF_LEVELS;
 		LevelConfiguration level_configuration;
+
 		int current_level_index;
 
 	public:

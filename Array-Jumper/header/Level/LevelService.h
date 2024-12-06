@@ -1,10 +1,10 @@
 #pragma once
-#include "../../header/Level/LevelController.h"
 #include "../../header/Level/LevelData.h"
 
 namespace Level
 {
 	class LevelController;
+	struct BoxDimensions;
 
 	class LevelService
 	{

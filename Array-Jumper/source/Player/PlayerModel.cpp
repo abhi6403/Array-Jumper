@@ -5,7 +5,6 @@ namespace Player
 	PlayerModel::PlayerModel()
 	{
 		
-		resetPlayer();
 	}
 
 	PlayerModel::~PlayerModel()

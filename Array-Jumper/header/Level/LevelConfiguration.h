@@ -40,7 +40,7 @@ namespace Level
 
 			for (int i = 0; i < LevelData::NUMBER_OF_BOXES; i++)
 			{
-				levels[1].level_boxes[i] = level_3[i];
+				levels[2].level_boxes[i] = level_3[i];
 			}
 		}
 	};

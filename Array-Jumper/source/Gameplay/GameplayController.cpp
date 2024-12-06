@@ -1,6 +1,7 @@
 #include "../../header/Gameplay/GameplayController.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Main/GameService.h"
+#include "../../header/Level/LevelData.h"
 
 using namespace Global;
 using namespace Level;
@@ -10,7 +11,7 @@ namespace Gameplay
 {
 	GameplayController::GameplayController()
 	{
-
+		
 	}
 
 	GameplayController::~GameplayController()
@@ -66,7 +67,7 @@ namespace Gameplay
 		if (isObstacle(value))
 		{
 			processObstacle();
-		}
+		}else
 		if (isEndBlock(value))
 		{
 			processEndBlock();
@@ -99,6 +100,7 @@ namespace Gameplay
 	{
 		ServiceLocator::getInstance()->getLevelService()->loadNextLevel();
 	}
+
 	void GameplayController::gameOver()
 	{
 		GameService::setGameState(GameState::CREDITS);

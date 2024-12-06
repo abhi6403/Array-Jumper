@@ -5,7 +5,7 @@ namespace Gameplay
 {
 	GameplayService::GameplayService()
 	{
-
+		gameplay_controller = new GameplayController();
 	}
 
 	GameplayService::~GameplayService()
