@@ -50,6 +50,6 @@ namespace Player
 
 	void PlayerService::resetPlayer()
 	{
-		return player_controller->resetPlayer();
+	    player_controller->resetPlayer();
 	}
 }
