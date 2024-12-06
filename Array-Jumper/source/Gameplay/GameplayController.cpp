@@ -33,6 +33,12 @@ namespace Gameplay
 
 	}
 
+	void GameplayController::startGame()
+	{
+		GameService::setGameState(GameState::GAMEPLAY);
+		return ServiceLocator::getInstance()->getLevelService()->resetLevel();
+		return ServiceLocator::getInstance()->getPlayerService()->resetPlayer();
+	}
 	void GameplayController::processObstacle()
 	{
 		ServiceLocator::getInstance()->getPlayerService()->takeDamage();

@@ -28,6 +28,10 @@ namespace Gameplay
 		gameplay_controller->render();
 	}
 
+	void GameplayService::startGame()
+	{
+		gameplay_controller->startGame();
+	}
 	void GameplayService::destroy()
 	{
 		delete(gameplay_controller);
