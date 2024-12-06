@@ -6,6 +6,7 @@
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Gameplay/GameplayService.h"
 
+using namespace Global;
 namespace Player
 {
 
@@ -83,8 +84,8 @@ namespace Player
 			return;
 
 		player_model->setCurrentPosition(targetPosition);
-		Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::MOVE);
-		Global::ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
+		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::MOVE);
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
 	}
 
 	bool PlayerController::isPositionInBound(int targetPosition)
@@ -152,18 +153,38 @@ namespace Player
 			return;
 
 		player_model->setCurrentPosition(targetPosition);
-		Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::JUMP);
+		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::JUMP);
 
-		Global::ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
 	}
 
 	void PlayerController::takeDamage()
 	{
-		player_model->resetPlayer();
+		player_model->decrementLife();
+
+		if (player_model->getCurrentLives() <= 0)
+		{
+			onDeath();
+		}
+		else
+		{
+			player_model->resetPosition();
+		}
 	}
 
 	void PlayerController::resetPlayer()
 	{
+		player_model->resetPlayer();
+	}
+
+	int PlayerController::getCurrentLives()
+	{
+		return player_model->getCurrentLives();
+	}
+
+	void PlayerController::onDeath()
+	{
+		ServiceLocator::getInstance()->getGameplayService()->onDeath();
 		player_model->resetPlayer();
 	}
 }

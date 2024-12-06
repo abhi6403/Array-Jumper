@@ -34,8 +34,10 @@ namespace Player
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
 		int getCurrentPosition();
+		int getCurrentLives();
 		void takeDamage();
 		void resetPlayer();
+		void onDeath();
 
 	};
 }

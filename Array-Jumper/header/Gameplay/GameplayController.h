@@ -7,6 +7,8 @@ namespace Gameplay
 {
 	class GameplayController
 	{
+	private:
+		
 
 	public:
 		GameplayController();
@@ -21,5 +23,7 @@ namespace Gameplay
 		bool isEndBlock(BlockType value);
 		void onPositionChanged(int position);
 		void processEndBlock();
+		void onDeath();
+		void gameOver();;
 	};
 }
