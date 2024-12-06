@@ -21,9 +21,12 @@ namespace Gameplay
 		void processObstacle();
 		bool isObstacle(BlockType value);
 		bool isEndBlock(BlockType value);
+		bool isLastLevel();
+		void loadNextLevel();
 		void onPositionChanged(int position);
 		void processEndBlock();
 		void onDeath();
-		void gameOver();;
+		void gameOver();
+		void gameWon();
 	};
 }
